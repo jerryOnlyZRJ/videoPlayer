@@ -1,0 +1,24 @@
+<!--支持RTMP/HLS双协议-->
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset=utf-8 />
+		<title>fz-live</title>
+		<link href="css/video.css" rel="stylesheet">
+		<script src="js/video.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/videojs-contrib-hls.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<video id="my_video_1" class="video-js vjs-default-skin" controls preload="auto" width="1000" height="500" data-setup='{}'>
+			<!--HLS协议支持跨域访问-->
+			<!--<source src="http://easynvr.easydarwin.org:10800/hls/stream_1/stream_1_live.m3u8" type="application/x-mpegURL">-->
+			<!--RTMP协议只支持同源访问-->
+			<!--chrome console输出的信息：Cross origin requests are only supported for protocol schemes: http, data, chrome, chrome-extension, https-->
+			<!--实现跨域只能通过上面的协议-->
+			<source src="rtmp://{host}:10935/hls/stream_1" type="application/x-mpegURL">
+		</video>
+	</body>
+
+</html>
